@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/dependancy_injection/injection_container.dart';
@@ -18,6 +19,9 @@ class _SplashPageState extends State<SplashPage> {
 
   @override
   void initState() {
+    Timer _ = new Timer(Duration(milliseconds: 1500), () async {
+      _bloc.onInitializeApp();
+    });
     super.initState();
   }
 
@@ -70,6 +74,10 @@ class _SplashPageState extends State<SplashPage> {
       case -2:
         Navigator.pushNamedAndRemoveUntil(
             context, Screens.SIGN_UP, (route) => false);
+        break;
+      case 1:
+        Navigator.pushNamedAndRemoveUntil(
+            context, Screens.MAIN_PAGE, (route) => false);
         break;
     }
   }

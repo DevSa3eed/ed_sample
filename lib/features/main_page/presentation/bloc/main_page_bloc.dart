@@ -97,11 +97,9 @@ class MainPageBloc extends Bloc<MainPageEvent, MainPageState> {
         ..beneficiariesLoaded = false);
     }, (r) async* {
       yield state.rebuild((p0) => p0
-            ..isLoadingBeneficiaries = false
-            ..errorLoadingBeneficiaries = false
-            ..beneficiariesLoaded = true
-          // ..beneficiaries = r
-          );
+        ..isLoadingBeneficiaries = false
+        ..errorLoadingBeneficiaries = false
+        ..beneficiariesLoaded = true);
     });
   }
 }
